@@ -1,0 +1,35 @@
+{
+  "app_name": "CycleAI",
+  "app_tagline": "Your AI Health Companion",
+  
+  "nav": {
+    "home": "Home",
+    "calendar": "Calendar",
+    "chat": "Chat",
+    "learn": "Learn",
+    "profile": "Profile"
+  },
+  
+  "auth": {
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "phone": "Phone Number"
+  },
+  
+  "cycle": {
+    "title": "My Cycle",
+    "log_period": "Log Period",
+    "next_period": "Next Period",
+    "days": "Days",
+    "irregular_detected": "Irregular cycle detected",
+    "pcos_alert": "PCOS signs detected - consult doctor"
+  },
+  
+  "errors": {
+    "generic": "Something went wrong. Try again.",
+    "network": "No internet connection.",
+    "offline_mode": "Offline mode. Data syncs when connected."
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "app_name": "CycleAI",
+  "app_tagline": "Your AI Health Companion",
+  
+  "nav": {
+    "home": "Home",
+    "calendar": "Calendar",
+    "chat": "Chat",
+    "learn": "Learn",
+    "profile": "Profile"
+  },
+  
+  "auth": {
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up",
+    "email": "Email Address",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "forgot_password": "Forgot Password?",
+    "phone": "Phone Number",
+    "send_otp": "Send OTP",
+    "verify_otp": "Verify OTP",
+    "or": "or",
+    "already_have_account": "Already have an account?",
+    "dont_have_account": "Don't have an account?"
+  },
+  
+  "cycle": {
+    "title": "My Cycle",
+    "log_period": "Log Period",
+    "period_started": "Period Started",
+    "period_ended": "Period Ended",
+    "next_period": "Next Period",
+    "cycle_day": "Day {} of cycle",
+    "cycle_length": "Cycle Length",
+    "period_length": "Period Length",
+    "days": "days",
+    "irregular_detected": "Irregular cycle pattern detected",
+    "pcos_alert": "PCOS pattern detected - consult a doctor"
+  },
+  
+  "symptoms": {
+    "title": "Symptoms",
+    "log": "Log Symptoms",
+    "cramps": "Cramps",
+    "bloating": "Bloating",
+    "headache": "Headache",
+    "fatigue": "Fatigue",
+    "mood_swings": "Mood Swings",
+    "back_pain": "Back Pain",
+    "acne": "Acne",
+    "flow": "Flow",
+    "light": "Light",
+    "medium": "Medium",
+    "heavy": "Heavy"
+  },
+  
+  "chat": {
+    "title": "Health Assistant",
+    "hint": "Ask me about menstrual health...",
+    "disclaimer": "For educational purposes only. Not medical advice.",
+    "thinking": "Thinking..."
+  },
+  
+  "learn": {
+    "title": "Learn",
+    "subtitle": "Health Education"
+  },
+  
+  "supply": {
+    "title": "Pad Supply",
+    "request": "Request Pads",
+    "nearby": "Nearby Distribution"
+  },
+  
+  "iot": {
+    "title": "Incinerator",
+    "temperature": "Temperature",
+    "gas_level": "Gas Level",
+    "safe": "Safe to Use",
+    "warning": "Warning",
+    "danger": "Danger - Shutdown",
+    "offline": "Device Offline"
+  },
+  
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "No internet connection.",
+    "offline_mode": "Offline mode. Data syncs when connected.",
+    "session_expired": "Session expired. Please sign in again."
+  },
+  
+  "offline": {
+    "banner": "You are offline",
+    "syncing": "Syncing data...",
+    "synced": "All data synced"
+  }
+}

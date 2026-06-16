@@ -1,0 +1,104 @@
+name: menstrual_health_system
+description: AI-Based Menstrual Health and Hygiene Management System - Patent Project
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_bloc: ^8.1.3
+  equatable: ^2.0.5
+
+  # Navigation
+  go_router: ^13.2.0
+
+  # Local Database
+  sqflite: ^2.3.2
+  path: ^1.9.0
+  path_provider: ^2.1.2
+
+  # Network
+  dio: ^5.4.1
+  connectivity_plus: ^6.0.3
+
+  # Firebase
+  firebase_core: ^2.27.1
+  firebase_auth: ^4.17.9
+
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+  easy_localization: ^3.0.3
+  intl: ^0.20.2
+
+  # Charts
+  fl_chart: ^0.67.0
+
+  # Maps
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+
+  # IoT / MQTT
+  mqtt_client: ^10.2.1
+
+  # Storage & Security
+  flutter_secure_storage: ^9.0.0
+  shared_preferences: ^2.2.3
+
+  # UI
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  lottie: ^3.1.0
+
+  # Permissions
+  permission_handler: ^11.3.0
+
+  # Voice
+  speech_to_text: ^6.6.0
+  flutter_tts: ^4.0.2
+
+  # Calendar
+  table_calendar: ^3.1.0
+
+  # Notifications
+  flutter_local_notifications: ^17.0.0
+
+  # Dependency Injection
+  get_it: ^7.6.7
+
+  # Data Classes
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.8
+  freezed: ^2.4.7
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/animations/
+    - assets/translations/
+
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-Regular.ttf
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Nunito-SemiBold.ttf
+          weight: 600

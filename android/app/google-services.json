@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1015856691644",
+    "project_id": "menstrual-health-system",
+    "storage_bucket": "menstrual-health-system.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015856691644:android:8f6d3f61876c45869953b9",
+        "android_client_info": {
+          "package_name": "com.example.menstrual_health_system"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrWe_aFVbeOf3igfp8f2W6xW-q2W_vGaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,68 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'app.dart';
+import 'injection_container.dart';
 
 /// main() - The VERY FIRST function Flutter calls when app starts.
-/// 
-/// Think of this as the "ignition switch" of your car.
-/// Before the engine (UI) starts, you need to:
-/// 1. Initialize the Flutter engine
-/// 2. Set up the translation system
-/// 3. Configure the device orientation
-/// 4. Set the status bar appearance
-/// Then hand control to App() widget
 void main() async {
   // ── STEP 1: FLUTTER ENGINE INITIALIZATION ───────────────────────
-  // CRITICAL: This MUST be the first line in main() when you use
-  // any async operations before runApp()
-  // Without this, Flutter will crash with a confusing error
   WidgetsFlutterBinding.ensureInitialized();
 
-  // ── STEP 2: LOCALIZATION INITIALIZATION ─────────────────────────
-  // EasyLocalization reads translation files from assets/translations/
-  // It detects the device language and loads the right translation file
+  // ── STEP 2: FIREBASE INITIALIZATION ─────────────────────────────
+  // CRITICAL: Must happen before any Firebase service (Auth, etc.)
+  // is used anywhere in the app. DefaultFirebaseOptions comes from
+  // the auto-generated firebase_options.dart file.
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // ── STEP 2.5: DEPENDENCY INJECTION SETUP ────────────────────────
+  // Must run AFTER Firebase is initialized (since our datasources
+  // depend on FirebaseAuth.instance and FirebaseFirestore.instance
+  // already existing), but BEFORE the app widget tree is built
+  // (since widgets will immediately request these dependencies).
+  await setupInjection();
+
+  // ── STEP 3: LOCALIZATION INITIALIZATION ─────────────────────────
   await EasyLocalization.ensureInitialized();
 
-  // ── STEP 3: SCREEN ORIENTATION ──────────────────────────────────
-  // Lock to portrait only.
-  // Reasoning: Menstrual health data (calendar, charts) is complex.
-  // Landscape mode makes it harder to read. Many rural phone users
-  // hold phones in portrait mode. This ensures consistent layout.
+  // ── STEP 4: SCREEN ORIENTATION ───────────────────────────────────
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
-  // ── STEP 4: STATUS BAR STYLE ────────────────────────────────────
-  // The status bar is the top bar showing time, battery, signal.
-  // We make it transparent so our gradient backgrounds look full-screen
+  // ── STEP 5: STATUS BAR STYLE ──────────────────────────────────────
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,          // No color background
-      statusBarIconBrightness: Brightness.dark,    // Dark icons on light bg
-      systemNavigationBarColor: Colors.white,       // Bottom nav area
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: Colors.white,
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
   );
 
-  // ── STEP 5: RUN THE APP ─────────────────────────────────────────
-  // EasyLocalization.ensureInitialized must be called before this
-  // path: folder containing translation JSON files
-  // supportedLocales: languages we support
-  // fallbackLocale: if device language isn't supported, use English
+  // ── STEP 6: RUN THE APP ────────────────────────────────────────────
   runApp(
     EasyLocalization(
       supportedLocales: const [
-        Locale('en', 'US'),    // English (United States)
-        Locale('ml', 'IN'),    // Malayalam (India) - from Kerala!
-        Locale('hi', 'IN'),    // Hindi (India)
-        Locale('ta', 'IN'),    // Tamil (India)
-        Locale('te', 'IN'),    // Telugu (India)
+        Locale('en', 'US'),
+        Locale('ml', 'IN'),
+        Locale('hi', 'IN'),
       ],
-      path: 'assets/translations',  // Where translation files are stored
-      fallbackLocale: const Locale('en', 'US'),  // Default to English
-      child: const App(),    // Our app is the child of the localization wrapper
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en', 'US'),
+      child: const App(),
     ),
   );
 }
